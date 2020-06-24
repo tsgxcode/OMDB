@@ -32,7 +32,7 @@ namespace OMDB
             Console.Write("Genre: ");
             string genre = Console.ReadLine();
 
-            Console.Write(band + formationDate + favoriteAlbum + yearOfRelease + numberOfSongs + genre);
+            Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
 
         }
 
