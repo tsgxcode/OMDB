@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
-
+using System.Net;
+//using System.Text;
 namespace OMDBmain
 {
     internal class Program
     {
+        private const int V = 0;
 
-
-        public static string OMDB { get; set; }
+        public static string OMDB { get; private set; }
 
 
         /*The obsucre Music Database!
@@ -19,6 +21,7 @@ V.1.0 */
 
         {
             // User inputs Artist and certain details
+            string dataBase = "dataBase";
             Console.WriteLine("OMDB! What would you like to add?  ");
             Console.Write("Artist: ");
             string band = Console.ReadLine();
@@ -33,9 +36,20 @@ V.1.0 */
             Console.Write("Genre: ");
             string genre = Console.ReadLine();
             Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
+
             // Saving additions to file
-            System.Threading.Tasks.Task task = File.AppendAllTextAsync(@"C:\Users\TSG\source\repos\OMDB\Data.txt", OMDB);
+            System.Threading.Tasks.Task task = File.AppendAllTextAsync(@"C:\Users\TSG\source\repos\OMDB\Data.txt", dataBase);
             _ = task;
+
+            //string textFilePath = @"C:\Users\TSG\source\repos\OMDB\Data.txt";
+
+            //File.WriteAllLines(textFilePath, );
+            using (StreamWriter sw = new StreamWriter("Data.txt"))
+     
+
+            Console.ReadLine();
+
+
 
 
         }
