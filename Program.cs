@@ -52,25 +52,30 @@ V.1.0 */
                 Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
 
 
-            //Saving additions to file
-
-
             // Reads from csv, txt, etc. and displays the current database info
             string currenDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo directory = new DirectoryInfo(currenDirectory);
             var fileName = Path.Combine(directory.FullName, "OMDB.csv");
             var fileContents = ReadFile(fileName);
             Console.WriteLine(fileContents);
-        
+            string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var line in fileLines)
+            {
+                Console.WriteLine(line);
 
-    }
+            }
+        }
 
         private static string ReadFile(string fileName)
         {
             using (var reader = new StreamReader(fileName))
             {
                 return reader.ReadToEnd();
+
             }
+
+            //Saving additions to file
+            
         }
     }
 }
