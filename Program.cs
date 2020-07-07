@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Net.Http.Headers;
 
 namespace OMDBmain
 {
@@ -33,7 +32,7 @@ V.1.0 */
 
 
 
-            // User inputs Artist and certain details
+            // User input: Add new Artist and details
             
             
                 Console.WriteLine("OMDB! What would you like to add?  ");
@@ -66,6 +65,16 @@ V.1.0 */
             }
         }
 
+        public static string WriteFile(string fileName)
+        {
+            using (var Writer = new StreamWriter(fileName))
+            {
+                return (fileName);
+
+            }
+        }
+
+
         private static string ReadFile(string fileName)
         {
             using (var reader = new StreamReader(fileName))
@@ -76,6 +85,7 @@ V.1.0 */
 
             //Saving additions to file
             
+
         }
     }
 }
