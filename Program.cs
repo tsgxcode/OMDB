@@ -9,7 +9,9 @@ namespace OMDBmain
 {
     internal class Program
     {
- 
+        public static object formationDate { get; private set; }
+        public static object band { get; private set; }
+
 
         /*The obsucre Music Database!
 A database of strange and wonderful music from around the world.
@@ -50,42 +52,44 @@ V.1.0 */
                 string genre = Console.ReadLine();
                 Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
 
-
             // Reads from csv, txt, etc. and displays the current database info
-            string currenDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo directory = new DirectoryInfo(currenDirectory);
+            DirectoryInfo directory = new DirectoryInfo(Directory.GetCurrentDirectory());
             var fileName = Path.Combine(directory.FullName, "OMDB.csv");
             var fileContents = ReadFile(fileName);
             Console.WriteLine(fileContents);
+
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            
             foreach (var line in fileLines)
             {
+                
                 Console.WriteLine(line);
+                Console.ResetColor();
 
             }
         }
 
-        public static string WriteFile(string fileName)
+        public static string WriteFile(string fileName, string band, string formationDate, string favoriteAlbum, string yearOfRelease, string numberOfSongs, string genre)
         {
-            using (var Writer = new StreamWriter(fileName))
+            using (StreamWriter writer = new StreamWriter(fileName))
             {
-                return (fileName);
+                return ($"{band} {formationDate} {favoriteAlbum} {yearOfRelease} {numberOfSongs} {genre}");
 
             }
         }
-
 
         private static string ReadFile(string fileName)
         {
             using (var reader = new StreamReader(fileName))
             {
+                
                 return reader.ReadToEnd();
+
 
             }
 
-            //Saving additions to file
-            
-
         }
+
+        
     }
 }
