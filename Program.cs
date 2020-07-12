@@ -9,8 +9,12 @@ namespace OMDBmain
 {
     internal class Program
     {
-        public static object formationDate { get; private set; }
-        public static object band { get; private set; }
+        public static string genre { get; private set; }
+        public static string numberOfSongs { get; private set; }
+        public static string yearOfRelease { get; private set; }
+        public static string favoriteAlbum { get; private set; }
+        public static string formationDate { get; private set; }
+        public static string band { get; private set; }
 
 
         /*The obsucre Music Database!
@@ -35,61 +39,45 @@ V.1.0 */
 
 
             // User input: Add new Artist and details
-            
-            
-                Console.WriteLine("OMDB! What would you like to add?  ");
-                Console.Write("Artist: ");
-                string band = Console.ReadLine();
-                Console.Write("Year Formed: ");
-                string formationDate = Console.ReadLine();
-                Console.Write("Favorite Album: ");
-                string favoriteAlbum = Console.ReadLine();
-                Console.Write("Year Of Release: ");
-                string yearOfRelease = Console.ReadLine();
-                Console.Write("Number Of Songs: ");
-                string numberOfSongs = Console.ReadLine();
-                Console.Write("Genre: ");
-                string genre = Console.ReadLine();
-                Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
+
+
+            Console.WriteLine("OMDB! What would you like to add?  ");
+            Console.Write("Artist: ");
+            band = Console.ReadLine();
+            Console.Write("Year Formed: ");
+            formationDate = Console.ReadLine();
+            Console.Write("Favorite Album: ");
+            favoriteAlbum = Console.ReadLine();
+            Console.Write("Year Of Release: ");
+            yearOfRelease = Console.ReadLine();
+            Console.Write("Number Of Songs: ");
+            numberOfSongs = Console.ReadLine();
+            Console.Write("Genre: ");
+            genre = Console.ReadLine();
+
+            //Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
 
             // Reads from csv, txt, etc. and displays the current database info
-            DirectoryInfo directory = new DirectoryInfo(Directory.GetCurrentDirectory());
+            string currentDirectory = Directory.GetCurrentDirectory();
+            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(directory.FullName, "OMDB.csv");
             var fileContents = ReadFile(fileName);
-            Console.WriteLine(fileContents);
-
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-            
             foreach (var line in fileLines)
             {
-                
                 Console.WriteLine(line);
-                Console.ResetColor();
-
             }
+
         }
 
-        public static string WriteFile(string fileName, string band, string formationDate, string favoriteAlbum, string yearOfRelease, string numberOfSongs, string genre)
-        {
-            using (StreamWriter writer = new StreamWriter(fileName))
-            {
-                return ($"{band} {formationDate} {favoriteAlbum} {yearOfRelease} {numberOfSongs} {genre}");
-
-            }
-        }
-
-        private static string ReadFile(string fileName)
+        public static string ReadFile(string fileName)
         {
             using (var reader = new StreamReader(fileName))
             {
-                
                 return reader.ReadToEnd();
-
-
             }
-
         }
 
-        
+
     }
 }
