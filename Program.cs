@@ -39,9 +39,8 @@ V.1.0 */
 
 
             // User input: Add new Artist and details
-
-
             Console.WriteLine("OMDB! What would you like to add?  ");
+
             Console.Write("Artist: ");
             band = Console.ReadLine();
             Console.Write("Year Formed: ");
@@ -67,7 +66,6 @@ V.1.0 */
             {
                 Console.WriteLine(line);
             }
-
         }
 
         public static string ReadFile(string fileName)
@@ -78,6 +76,16 @@ V.1.0 */
             }
         }
 
+        public static List<string> ReadArtistInfo(string fileName)
+        {
+            var artistInfo = new List<string>();
+            using (var reader = new StreamReader(fileName))
+
+            {
+
+            }
+            return artistInfo;
+        }
 
     }
 }
