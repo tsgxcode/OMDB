@@ -66,6 +66,7 @@ V.1.0 */
             {
                 Console.WriteLine(line);
             }
+
         }
 
         public static string ReadFile(string fileName)
@@ -74,17 +75,6 @@ V.1.0 */
             {
                 return reader.ReadToEnd();
             }
-        }
-
-        public static List<string> ReadArtistInfo(string fileName)
-        {
-            var artistInfo = new List<string>();
-            using (var reader = new StreamReader(fileName))
-
-            {
-
-            }
-            return artistInfo;
         }
 
     }
