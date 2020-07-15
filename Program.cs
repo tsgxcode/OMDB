@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Newtonsoft.Json;
+using OMDB;
 
 namespace OMDBmain
 {
@@ -22,7 +24,6 @@ A database of strange and wonderful music from around the world.
 Concept, design and code by T.Scott George - (C) 2020
 V.1.0 */
         public static void Main()
-
 
         {
             // About
@@ -60,22 +61,43 @@ V.1.0 */
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo directory = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(directory.FullName, "OMDB.csv");
-            var fileContents = ReadFile(fileName);
-            string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var line in fileLines)
+            var fileContents = Readformed(fileName);
+            fileName = Path.Combine(directory.FullName, "OMDB.json");
+            var formed = DeserializeFormed(fileName);
+
+            foreach (var formation in formed)
             {
-                Console.WriteLine(line);
+                Console.WriteLine(formation);
             }
+
 
         }
 
-        public static string ReadFile(string fileName)
+        public static string Readformed(string fileName)
         {
             using (var reader = new StreamReader(fileName))
             {
                 return reader.ReadToEnd();
             }
         }
+        public static List<dateFormed> DeserializeFormed(string fileName)
+        {
+            var formed = new List<dateFormed>();
+            var serielizer = new JsonSerializer();
+            using (var reader = new StreamReader(fileName))
+            using (var jsonReader = new JsonTextReader(reader))
+            {
+                formed = serielizer.Deserialize<List<dateFormed>>(jsonReader);
+            }
+            
+            return formed;
+        }
 
     }
 }
+
+//string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+//foreach (var line in fileLines)
+//{
+//    Console.WriteLine(line);
+//}

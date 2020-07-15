@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace OMDB
 {
 
+
     public class Rootobject
     {
-        public yearFormd[] Property1 { get; set; }
+        public dateFormed[] Formed { get; set; }
     }
 
-    public class yearFormd
+    public class dateFormed
     {
         public string ArtistName { get; set; }
         public int YearFormed { get; set; }
@@ -22,4 +24,4 @@ namespace OMDB
     }
 
 }
-}
+
