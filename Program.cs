@@ -61,7 +61,7 @@ V.1.0 */
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo directory = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(directory.FullName, "OMDB.csv");
-            var fileContents = Readformed(fileName);
+            var fileContents = ReadGenre(fileName);
             fileName = Path.Combine(directory.FullName, "OMDB.json");
             var NumberOfSongs = DeserializeFormed(fileName);
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
@@ -78,25 +78,27 @@ V.1.0 */
 
         }
 
-        public static string Readformed(string fileName)
+        public static List<Bands> DeserializeFormed(string fileName)
+        {
+            var Genre = new List<Bands>();
+            var serielizer = new JsonSerializer();
+            using (var reader = new StreamReader(fileName))
+            using (var jsonReader = new JsonTextReader(reader))
+            {
+                Genre = serielizer.Deserialize<List<Bands>>(jsonReader);
+            }
+
+            return Genre;
+        }
+
+        public static string ReadGenre(string fileName)
         {
             using (var reader = new StreamReader(fileName))
             {
                 return reader.ReadToEnd();
             }
         }
-        public static List<Bands> DeserializeFormed(string fileName)
-        {
-            var formed = new List<Bands>();
-            var serielizer = new JsonSerializer();
-            using (var reader = new StreamReader(fileName))
-            using (var jsonReader = new JsonTextReader(reader))
-            {
-                formed = serielizer.Deserialize<List<Bands>>(jsonReader);
-            }
-            
-            return formed;
-        }
+     
 
     }
 }
