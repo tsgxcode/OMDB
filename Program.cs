@@ -54,8 +54,8 @@ V.1.0 */
             numberOfSongs = Console.ReadLine();
             Console.Write("Genre: ");
             genre = Console.ReadLine();
-          
-            //Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
+
+            Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
 
             // Reads from csv, txt, etc. and displays the current database info
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -70,9 +70,10 @@ V.1.0 */
                 Console.WriteLine(line);
             }
 
-            foreach (var formation in formed)
+            foreach (var NumberOfSongs in formed)
             {
-                Console.WriteLine(formation);
+                
+                Console.WriteLine(NumberOfSongs);
             }
 
 
@@ -85,14 +86,14 @@ V.1.0 */
                 return reader.ReadToEnd();
             }
         }
-        public static List<dateFormed> DeserializeFormed(string fileName)
+        public static List<Bands> DeserializeFormed(string fileName)
         {
-            var formed = new List<dateFormed>();
+            var formed = new List<Bands>();
             var serielizer = new JsonSerializer();
             using (var reader = new StreamReader(fileName))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                formed = serielizer.Deserialize<List<dateFormed>>(jsonReader);
+                formed = serielizer.Deserialize<List<Bands>>(jsonReader);
             }
             
             return formed;

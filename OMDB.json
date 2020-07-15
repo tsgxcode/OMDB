@@ -1,74 +1,74 @@
 [
- {
-   "ArtistName": "Throbbing Gristle",
-   "YearFormed": 1976,
-   "FavoriteAlbum": "20 Jazz Funk Greats",
-   "YearOfRelease": 1979,
-   "NumberOfSongs": 11,
-   "Genre": "Experimental-Electronic",
-   "FIELD7": ""
- },
- {
-   "ArtistName": "Abecedarians ",
-   "YearFormed": 1985,
-   "FavoriteAlbum": "Resin",
-   "YearOfRelease": 1988,
-   "NumberOfSongs": 8,
-   "Genre": "PostPunk",
-   "FIELD7": ""
- },
- {
-   "ArtistName": "Honor Role",
-   "YearFormed": 1983,
-   "FavoriteAlbum": "Rictus",
-   "YearOfRelease": 1989,
-   "NumberOfSongs": 10,
-   "Genre": "PostPunk",
-   "FIELD7": ""
- },
- {
-   "ArtistName": "The Neon Judgement",
-   "YearFormed": 1981,
-   "FavoriteAlbum": "Blood And Thunder",
-   "YearOfRelease": 1989,
-   "NumberOfSongs": 8,
-   "Genre": "Electronic",
-   "FIELD7": ""
- },
- {
-   "ArtistName": "Great Plains",
-   "YearFormed": 1981,
-   "FavoriteAlbum": "Sum Things Up",
-   "YearOfRelease": 1987,
-   "NumberOfSongs": 13,
-   "Genre": "NewWave-ProgFolk",
-   "FIELD7": ""
- },
- {
-   "ArtistName": "Swell Maps",
-   "YearFormed": 1972,
-   "FavoriteAlbum": "Jane From Occupied Europe",
-   "YearOfRelease": 1980,
-   "NumberOfSongs": 13,
-   "Genre": "Experimental",
-   "FIELD7": ""
- },
- {
-   "ArtistName": "Slint",
-   "YearFormed": 1986,
-   "FavoriteAlbum": "Tweez",
-   "YearOfRelease": 1989,
-   "NumberOfSongs": 9,
-   "Genre": "Experimental-PostPunk",
-   "FIELD7": ""
- },
- {
-   "ArtistName": "Passion Fodder",
-   "YearFormed": 1984,
-   "FavoriteAlbum": "Fat Tuesday",
-   "YearOfRelease": 1986,
-   "NumberOfSongs": 12,
-   "Genre": "NewWave-PostPunk",
-   "FIELD7": ""
- }
+  {
+    "ArtistName": "Throbbing Gristle",
+    "FavoriteAlbum": "20 Jazz Funk Greats",
+    "FIELD7": "",
+    "Genre": "Experimental-Electronic",
+    "NumberOfSongs": 11,
+    "YearFormed": 1976,
+    "YearOfRelease": 1979
+  },
+  {
+    "ArtistName": "Abecedarians ",
+    "FavoriteAlbum": "Resin",
+    "FIELD7": "",
+    "Genre": "PostPunk",
+    "NumberOfSongs": 8,
+    "YearFormed": 1985,
+    "YearOfRelease": 1988
+  },
+  {
+    "ArtistName": "Honor Role",
+    "FavoriteAlbum": "Rictus",
+    "FIELD7": "",
+    "Genre": "PostPunk",
+    "NumberOfSongs": 10,
+    "YearFormed": 1983,
+    "YearOfRelease": 1989
+  },
+  {
+    "ArtistName": "The Neon Judgement",
+    "FavoriteAlbum": "Blood And Thunder",
+    "FIELD7": "",
+    "Genre": "Electronic",
+    "NumberOfSongs": 8,
+    "YearFormed": 1981,
+    "YearOfRelease": 1989
+  },
+  {
+    "ArtistName": "Great Plains",
+    "FavoriteAlbum": "Sum Things Up",
+    "FIELD7": "",
+    "Genre": "NewWave-ProgFolk",
+    "NumberOfSongs": 13,
+    "YearFormed": 1981,
+    "YearOfRelease": 1987
+  },
+  {
+    "ArtistName": "Swell Maps",
+    "FavoriteAlbum": "Jane From Occupied Europe",
+    "FIELD7": "",
+    "Genre": "Experimental",
+    "NumberOfSongs": 13,
+    "YearFormed": 1972,
+    "YearOfRelease": 1980
+  },
+  {
+    "ArtistName": "Slint",
+    "FavoriteAlbum": "Tweez",
+    "FIELD7": "",
+    "Genre": "Experimental-PostPunk",
+    "NumberOfSongs": 9,
+    "YearFormed": 1986,
+    "YearOfRelease": 1989
+  },
+  {
+    "ArtistName": "Passion Fodder",
+    "FavoriteAlbum": "Fat Tuesday",
+    "FIELD7": "",
+    "Genre": "NewWave-PostPunk",
+    "NumberOfSongs": 12,
+    "YearFormed": 1984,
+    "YearOfRelease": 1986
+  }
 ]
