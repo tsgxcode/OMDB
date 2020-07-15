@@ -54,7 +54,7 @@ V.1.0 */
             numberOfSongs = Console.ReadLine();
             Console.Write("Genre: ");
             genre = Console.ReadLine();
-
+          
             //Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
 
             // Reads from csv, txt, etc. and displays the current database info
@@ -64,6 +64,11 @@ V.1.0 */
             var fileContents = Readformed(fileName);
             fileName = Path.Combine(directory.FullName, "OMDB.json");
             var formed = DeserializeFormed(fileName);
+            string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var line in fileLines)
+            {
+                Console.WriteLine(line);
+            }
 
             foreach (var formation in formed)
             {
