@@ -16,7 +16,7 @@ namespace OMDBmain
         public static string yearOfRelease { get; private set; }
         public static string favoriteAlbum { get; private set; }
         public static string formationDate { get; private set; }
-        public static string band { get; private set; }
+        public static string bands { get; private set; }
 
 
         /*The obsucre Music Database!
@@ -43,7 +43,7 @@ V.1.0 */
             Console.WriteLine("OMDB! What would you like to add?  ");
 
             Console.Write("Artist: ");
-            band = Console.ReadLine();
+            bands = Console.ReadLine();
             Console.Write("Year Formed: ");
             formationDate = Console.ReadLine();
             Console.Write("Favorite Album: ");
@@ -55,7 +55,7 @@ V.1.0 */
             Console.Write("Genre: ");
             genre = Console.ReadLine();
 
-            Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
+            //Console.Write(band + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
 
             // Reads from csv, txt, etc. and displays the current database info
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -63,19 +63,18 @@ V.1.0 */
             var fileName = Path.Combine(directory.FullName, "OMDB.csv");
             var fileContents = Readformed(fileName);
             fileName = Path.Combine(directory.FullName, "OMDB.json");
-            var formed = DeserializeFormed(fileName);
+            var NumberOfSongs = DeserializeFormed(fileName);
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
             foreach (var line in fileLines)
             {
                 Console.WriteLine(line);
             }
 
-            foreach (var NumberOfSongs in formed)
+            foreach (var Band in bands)
             {
-                
-                Console.WriteLine(NumberOfSongs);
+                Console.WriteLine(bands);
             }
-
 
         }
 
@@ -101,9 +100,3 @@ V.1.0 */
 
     }
 }
-
-//string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-//foreach (var line in fileLines)
-//{
-//    Console.WriteLine(line);
-//}

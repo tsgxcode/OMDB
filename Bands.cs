@@ -26,7 +26,7 @@ namespace OMDB
         public int NumberOfSongs { get; set; }
         [JsonProperty(PropertyName = " Genre")]
         public string Genre { get; set; }
-        public string FIELD7 { get; set; }
+        //public string FIELD7 { get; set; }
     }
 
 }
