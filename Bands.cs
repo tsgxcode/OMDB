@@ -9,10 +9,10 @@ namespace OMDB
 
     public class Rootobject
     {
-        public Bands[] Bands { get; set; }
+        public Band[] Bands { get; set; }
     }
 
-    public class Bands
+    public class Band
     {
         [JsonProperty(PropertyName = " ArtistName")]
         public string ArtistName { get; set; }
@@ -26,7 +26,7 @@ namespace OMDB
         public int NumberOfSongs { get; set; }
         [JsonProperty(PropertyName = " Genre")]
         public string Genre { get; set; }
-        //public string FIELD7 { get; set; }
+        public string FIELD7 { get; set; }
     }
 
 }
