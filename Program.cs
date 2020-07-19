@@ -11,13 +11,15 @@ namespace OMDBmain
 {
     internal class Program
     {
+
+
         public static string genre { get; private set; }
         public static string numberOfSongs { get; private set; }
         public static string yearOfRelease { get; private set; }
         public static string favoriteAlbum { get; private set; }
         public static string formationDate { get; private set; }
         public static string artist { get; private set; }
-        
+
 
 
         /*The obsucre Music Database!
@@ -56,67 +58,46 @@ V.1.0 */
             Console.Write("Genre: ");
             genre = Console.ReadLine();
 
-            Console.Write( artist + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
+            Console.Write(artist + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
 
             // Reads from csv, txt, etc. and displays the current database info
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo directory = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(directory.FullName, "OMDB.csv");
-            var fileContents = ReadGenre(fileName);
-            fileName = Path.Combine(directory.FullName, "OMDB.json");
-            var NumberOfSongs = DeserializeFormed(fileName);
+            var fileContents = ReadFIle(fileName);
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
 
             foreach (var line in fileLines)
             {
                 Console.WriteLine(line);
             }
 
-            foreach (var Band in artist)
-            {
-                Console.WriteLine(artist);
-            }
-
-            fileName = Path.Combine(directory.FullName, "Genre.json");
-            SerializeGenreToFile(artist, fileName);
         }
 
-        private static string SerializeGenreToFile(string genre, string fileName)
-        {
-            return genre;
-        }
-
-        public static List<OMDB.Band> DeserializeFormed(string fileName)
-        {
-            var Genre = new List<OMDB.Band>();
-            var serielizer = new JsonSerializer();
-            using (var reader = new StreamReader(fileName))
-            using (var jsonReader = new JsonTextReader(reader))
-            {
-                Genre = serielizer.Deserialize<List<Band>>(jsonReader);
-            }
-
-            return Genre;
-        }
-
-        public static string ReadGenre(string fileName)
+        public static string ReadFIle(string fileName)
         {
             using (var reader = new StreamReader(fileName))
             {
                 return reader.ReadToEnd();
             }
         }
-        public static void DeserializeGenreToFileList<Genre>(string fileName)        
+
+        public static List<string[]> festivalsINfo(string fileName)
         {
-            
-            var serielizer = new JsonSerializer();
-            using (var writer = new StreamWriter(fileName))
-            using (var jsonWriter = new JsonTextWriter(writer))
+            var festivalsINfo = new List<string[]>();
+
+            using (var reader = new StreamReader(fileName))
             {
-                serielizer.Serialize(jsonWriter, genre);
+                string line = "";
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] values = line.Split(',');
+                    festivalsINfo.Add(values);
+
+                }
             }
-
+            return festivalsINfo;
         }
-
     }
-}
+ }
