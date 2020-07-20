@@ -65,6 +65,7 @@ V.1.0 */
             DirectoryInfo directory = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(directory.FullName, "OMDB.csv");
             var fileContents = ReadFIle(fileName);
+            fileName = Path.Combine(directory.FullName, "Festivasls.json");
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
 
@@ -73,6 +74,9 @@ V.1.0 */
                 Console.WriteLine(line);
             }
 
+            fileName = fileName = Path.Combine(directory.FullName, "Festivasls.json");
+            List<Festivals> festivals = null;
+            SerializeFestivalToFile(festivals, fileName);
         }
 
         public static string ReadFIle(string fileName)
@@ -113,7 +117,16 @@ V.1.0 */
             return festivals;
         }
 
-
+        public static void SerializeFestivalToFile(List<Festivals> festivals, string fileName)
+        {
+            
+            var serializer = new JsonSerializer();
+            using (var writer = new StreamWriter(fileName))
+            using (var jsonWriter = new JsonTextWriter(writer))
+            {
+                serializer.Serialize(jsonWriter, festivals);
+            }
+        }
 
     }
  }

@@ -7,6 +7,7 @@ using Newtonsoft;
 namespace OMDB
 {
 
+
     public class Festivals
     {
         [JsonProperty(PropertyName = " Artist")]

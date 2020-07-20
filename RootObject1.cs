@@ -1,6 +1,6 @@
 ﻿namespace OMDB
 {
-    public class Root
+    public class RootObject
     {
         public Festivals[] festivals { get; set; }
     }
