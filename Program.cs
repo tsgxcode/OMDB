@@ -83,7 +83,7 @@ V.1.0 */
             }
         }
 
-        public static List<string[]> festivalsINfo(string fileName)
+        public static List<string[]> festivalsInfo(string fileName)
         {
             var festivalsINfo = new List<string[]>();
 
@@ -99,5 +99,21 @@ V.1.0 */
             }
             return festivalsINfo;
         }
+
+        public static List<Festivals> DeserializeFestivals(string fileName)
+        {
+            var festivals = new List<Festivals>();
+            var serializer = new JsonSerializer();
+            using (var reader = new StreamReader(fileName))
+            using (var jsonReader = new JsonTextReader(reader))
+            {
+                festivals = serializer.Deserialize<List<Festivals>>(jsonReader);
+            }
+
+            return festivals;
+        }
+
+
+
     }
  }
