@@ -11,7 +11,7 @@ namespace OMDBmain
 {
     internal class Program
     {
-
+        private static List<Festivals> festival;
 
         public static string genre { get; private set; }
         public static string numberOfSongs { get; private set; }
@@ -68,15 +68,13 @@ V.1.0 */
             fileName = Path.Combine(directory.FullName, "Festivasls.json");
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-
             foreach (var line in fileLines)
             {
                 Console.WriteLine(line);
             }
 
             fileName = fileName = Path.Combine(directory.FullName, "Festivasls.json");
-            List<Festivals> festivals = null;
-            SerializeFestivalToFile(festivals, fileName);
+            SerializeFestivalToFile(festival, fileName);
         }
 
         public static string ReadFIle(string fileName)
@@ -117,16 +115,17 @@ V.1.0 */
             return festivals;
         }
 
+
         public static void SerializeFestivalToFile(List<Festivals> festivals, string fileName)
         {
-            
+
             var serializer = new JsonSerializer();
-            using (var writer = new StreamWriter(fileName))
-            using (var jsonWriter = new JsonTextWriter(writer))
+            using (StreamWriter sw = new StreamWriter(@"Festivasls.json"))
+            using (var jsonWriter = new JsonTextWriter(sw))
             {
-                serializer.Serialize(jsonWriter, festivals);
+                serializer.Serialize(jsonWriter, value: festivals);
             }
         }
 
     }
- }
+}

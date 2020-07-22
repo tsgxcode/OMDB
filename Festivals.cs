@@ -6,8 +6,14 @@ using Newtonsoft;
 
 namespace OMDB
 {
+    public class RootObject1
+    {
+        public Festivals[] festivals { get; set; }
+    }
+}
 
-
+namespace OMDB
+{
     public class Festivals
     {
         [JsonProperty(PropertyName = " Artist")]
@@ -23,10 +29,7 @@ namespace OMDB
         [JsonProperty(PropertyName = " State")]
         public string State { get; set; }
 
-      
-        //public string FIELD7 { get; set; 
+
     }
-
-
 
 }
