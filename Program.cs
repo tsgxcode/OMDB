@@ -67,8 +67,11 @@ V.1.0 */
             fileName = Path.Combine(directory.FullName, "Festivasls.json");
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
+
             foreach (var line in fileLines)
             {
+                
+                
                 Console.WriteLine(line);
             }
         }
@@ -85,7 +88,7 @@ V.1.0 */
 
         public static List<string[]> festivalsInfo(string fileName)
         {
-            var festivalsINfo = new List<string[]>();
+            var festivalsInfo = new List<string[]>();
 
             using (var reader = new StreamReader(fileName))
             {
@@ -93,11 +96,11 @@ V.1.0 */
                 while ((line = reader.ReadLine()) != null)
                 {
                     string[] values = line.Split(',');
-                    festivalsINfo.Add(values);
+                    festivalsInfo.Add(values);
 
                 }
             }
-            return festivalsINfo;
+            return festivalsInfo;
         }
 
         public static List<Festivals> DeserializeFestivals(string fileName)
@@ -118,6 +121,7 @@ V.1.0 */
         {
 
             var serializer = new JsonSerializer();
+
             using (StreamWriter sw = new StreamWriter(@"Festivasls.json"))
             using (var jsonWriter = new JsonTextWriter(sw))
             {

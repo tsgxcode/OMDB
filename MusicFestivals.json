@@ -1,31 +1,31 @@
 [
   {
-    "248": 1200,
-    "9.21.1998": "4.19.2019",
+    "attendees": 1200,
+    "Date": "4.19.2019",
     "Detroit": "Portland",
     "MS": "Main",
     "NightFall": "DepthField",
     "TerraLux": "Stat9"
   },
   {
-    "248": 4500,
-    "9.21.1998": "3.25.2020",
+    "attendees": 4500,
+    "Date": "3.25.2020",
     "Detroit": "JTown",
     "MS": "KY",
     "NightFall": "ChiptuneRevo",
     "TerraLux": "BootRec"
   },
   {
-    "248": 400,
-    "9.21.1998": "2.5.2020",
+    "attendees": 400,
+    "Date": "2.5.2020",
     "Detroit": "Baltimore",
     "MS": "MA",
     "NightFall": "SprigNights",
     "TerraLux": "Ardeco"
   },
   {
-    "248": 3240,
-    "9.21.1998": "4.12.2001",
+    "attendees": 3240,
+    "Date": "4.12.2001",
     "Detroit": "Sanibell",
     "MS": "FL",
     "NightFall": "OceanGlow",
