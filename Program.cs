@@ -11,13 +11,13 @@ namespace OMDBmain
 {
     internal class Program
     {
-        public static string genre { get; private set; }
-        public static string numberOfSongs { get; private set; }
-        public static string yearOfRelease { get; private set; }
-        public static string favoriteAlbum { get; private set; }
-        public static string formationDate { get; private set; }
-        public static string artist { get; private set; }
-        public static string festival { get; private set; }
+        public static string genre { get; set; }
+        public static string numberOfSongs { get; set; }
+        public static string yearOfRelease { get; set; }
+        public static string favoriteAlbum { get; set; }
+        public static string formationDate { get; set; }
+        public static string artist { get; set; }
+        public static string festival { get; set; }
 
 
 
@@ -29,7 +29,7 @@ V.1.0 */
 
         {
             // About
-            string appName = "The Obsucre Music Database";
+            string appName = "Obsure Music Library, Welcome! What would you like to add?";
             string appVersion = "1.0";
             string appAuthor = " (C) 2020 T. Scott George";
 
@@ -42,7 +42,7 @@ V.1.0 */
 
 
             // User input: Add new Artist and details
-            Console.WriteLine("OMDB! What would you like to add?  ");
+            Console.WriteLine("OML! What would you like to add?  ");
 
             Console.Write("Artist: ");
             artist = Console.ReadLine();
@@ -70,13 +70,13 @@ V.1.0 */
 
             foreach (var line in fileLines)
             {
-                
-                
+
+
                 Console.WriteLine(line);
             }
         }
 
-        
+
 
         public static string ReadFIle(string fileName)
         {
@@ -103,31 +103,18 @@ V.1.0 */
             return festivalsInfo;
         }
 
-        public static List<Festivals> DeserializeFestivals(string fileName)
+        public static List<OMLFestivals> DeserializeFestivals(string fileName)
         {
-            var festivals = new List<Festivals>();
+            var festivals = new List<OMLFestivals>();
             var serializer = new JsonSerializer();
             using (var reader = new StreamReader(fileName))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                festivals = serializer.Deserialize<List<Festivals>>(jsonReader);
+                festivals = serializer.Deserialize<List<OMLFestivals>>(jsonReader);
             }
-
             return festivals;
         }
 
-
-        public static void SerializeFestivalToFile(List<Festivals> festivals, string fileName)
-        {
-
-            var serializer = new JsonSerializer();
-
-            using (StreamWriter sw = new StreamWriter(@"Festivasls.json"))
-            using (var jsonWriter = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(jsonWriter, festivals);
-            }
-        }
 
     }
 }

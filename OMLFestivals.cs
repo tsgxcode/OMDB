@@ -8,13 +8,13 @@ namespace OMDB
 {
     public class RootObject1
     {
-        public Festivals[] festivals { get; set; }
+        public OMLFestivals[] festivals { get; set; }
     }
 }
 
 namespace OMDB
 {
-    public class Festivals
+    public class OMLFestivals
     {
         [JsonProperty(PropertyName = " Artist")]
         public string Artist { get; set; }
