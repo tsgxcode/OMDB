@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 using OMDB;
+using System.Text.Json.Serialization;
+
 
 namespace OMDBmain
 {
@@ -57,25 +59,23 @@ V.1.0 */
             Console.Write("Genre: ");
             genre = Console.ReadLine();
 
-            Console.Write(artist + "\n" + formationDate + "\n" + favoriteAlbum + "\n" + yearOfRelease + "\n" + numberOfSongs + "\n" + genre + "\n");
+            string fullText = (artist + "," + formationDate + "," + favoriteAlbum + "," + yearOfRelease + "," + yearOfRelease + "," + numberOfSongs + "," + genre + ",");
+
+            File.AppendAllText(@"C:\Users\TSG\source\repos\OMDB\Data.txt", fullText + Environment.NewLine);
 
             // Reads from csv, txt, etc. and displays the current database info
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo directory = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(directory.FullName, "OMDB.csv");
             var fileContents = ReadFIle(fileName);
-            fileName = Path.Combine(directory.FullName, "Festivasls.json");
+            fileName = Path.Combine(directory.FullName, "OMLFestivasls.json");
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
 
             foreach (var line in fileLines)
             {
-
-
                 Console.WriteLine(line);
             }
         }
-
 
 
         public static string ReadFIle(string fileName)
@@ -103,6 +103,7 @@ V.1.0 */
             return festivalsInfo;
         }
 
+
         public static List<OMLFestivals> DeserializeFestivals(string fileName)
         {
             var festivals = new List<OMLFestivals>();
@@ -115,6 +116,15 @@ V.1.0 */
             return festivals;
         }
 
-
+        public static void SerializeFestivalsToFile(List<OMLFestivals> festivals, string fileName)
+        {
+            var serializer = new JsonSerializer();
+            using (var writer = new StreamWriter(fileName))
+            using (var jsonWriter = new JsonTextWriter(writer))
+            {
+                RootObject1 rootObject1 = JsonConvert.DeserializeObject<RootObject1>(System.IO.File.ReadAllText("OLMFestivals.json"));
+                serializer.Serialize(jsonWriter, festivals);
+            }
+        }
     }
 }
