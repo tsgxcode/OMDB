@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,16 +21,14 @@ namespace OMDBmain
         public static string artist { get; set; }
         public static string festival { get; set; }
 
-
-
         /*The obsucre Music Database!
-A database of strange and wonderful music from around the world.
-Concept, design and code by T.Scott George - (C) 2020
-V.1.0 */
+          A database of strange and wonderful music from around the world.
+          Concept, design and code by T.Scott George - (C) 2020
+          V.1.0 */
         public static void Main()
 
         {
-            // About
+            // About project
             string appName = "Obsure Music Library, Welcome! What would you like to add?";
             string appVersion = "1.0";
             string appAuthor = " (C) 2020 T. Scott George";
@@ -41,11 +39,27 @@ V.1.0 */
 
             Console.ResetColor();
 
+      
+            //Master loop
+            do
+            {
+                Console.WriteLine("OML! What would you like to add?  ");
 
 
-            // User input: Add new Artist and details
-            Console.WriteLine("OML! What would you like to add?  ");
-
+                LogNewArtist();
+                Console.WriteLine("Would you like to see All artist's albums Yes or No? ");
+                if(Console.ReadLine().ToUpper() == "YES")
+                {
+                    OutPutLog();
+                }
+                Console.WriteLine("Add Another? Yes or No");
+            }
+            while (Console.ReadLine().ToUpper() == "YES");
+            
+        }
+        //User adds artist's info to the database
+        public static void LogNewArtist()
+        {
             Console.Write("Artist: ");
             artist = Console.ReadLine();
             Console.Write("Year Formed: ");
@@ -59,16 +73,20 @@ V.1.0 */
             Console.Write("Genre: ");
             genre = Console.ReadLine();
 
-            string fullText = (artist + "," + formationDate + "," + favoriteAlbum + "," + yearOfRelease + "," + yearOfRelease + "," + numberOfSongs + "," + genre + ",");
 
-            File.AppendAllText(@"C:\Users\TSG\source\repos\OMDB\Data.txt", fullText + Environment.NewLine);
+            string fullText = (artist + "." + formationDate + "." + favoriteAlbum + "." + yearOfRelease + "." + yearOfRelease + "." + numberOfSongs + "." + genre + ".");
 
+            File.AppendAllText(@"Data.txt", fullText + Environment.NewLine);
+        }
+
+
+        public static void OutPutLog()
+        {
             // Reads from csv, txt, etc. and displays the current database info
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo directory = new DirectoryInfo(currentDirectory);
-            var fileName = Path.Combine(directory.FullName, "OMDB.csv");
-            var fileContents = ReadFIle(fileName);
-            fileName = Path.Combine(directory.FullName, "OMLFestivasls.json");
+            var fileName = Path.Combine(directory.FullName, "Data.txt");
+            var fileContents = ReadFile(fileName);
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var line in fileLines)
@@ -78,52 +96,12 @@ V.1.0 */
         }
 
 
-        public static string ReadFIle(string fileName)
+
+        public static string ReadFile(string fileName)
         {
             using (var reader = new StreamReader(fileName))
             {
                 return reader.ReadToEnd();
-            }
-        }
-
-        public static List<string[]> festivalsInfo(string fileName)
-        {
-            var festivalsInfo = new List<string[]>();
-
-            using (var reader = new StreamReader(fileName))
-            {
-                string line = "";
-                while ((line = reader.ReadLine()) != null)
-                {
-                    string[] values = line.Split(',');
-                    festivalsInfo.Add(values);
-
-                }
-            }
-            return festivalsInfo;
-        }
-
-
-        public static List<OMLFestivals> DeserializeFestivals(string fileName)
-        {
-            var festivals = new List<OMLFestivals>();
-            var serializer = new JsonSerializer();
-            using (var reader = new StreamReader(fileName))
-            using (var jsonReader = new JsonTextReader(reader))
-            {
-                festivals = serializer.Deserialize<List<OMLFestivals>>(jsonReader);
-            }
-            return festivals;
-        }
-
-        public static void SerializeFestivalsToFile(List<OMLFestivals> festivals, string fileName)
-        {
-            var serializer = new JsonSerializer();
-            using (var writer = new StreamWriter(fileName))
-            using (var jsonWriter = new JsonTextWriter(writer))
-            {
-                RootObject1 rootObject1 = JsonConvert.DeserializeObject<RootObject1>(System.IO.File.ReadAllText("OLMFestivals.json"));
-                serializer.Serialize(jsonWriter, festivals);
             }
         }
     }
