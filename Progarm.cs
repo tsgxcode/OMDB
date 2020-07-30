@@ -28,7 +28,7 @@ namespace OMDBmain
         public static void Main()
 
         {
-            // About project
+            // Some Details
             string appName = "Obsure Music Library, Welcome! What would you like to add?";
             string appVersion = "1.0";
             string appAuthor = " (C) 2020 T. Scott George";
