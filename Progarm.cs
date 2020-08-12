@@ -73,12 +73,9 @@ namespace OMDBmain
             Console.Write("Genre: ");
             genre = Console.ReadLine();
 
-
-            string fullText = (artist + "." + formationDate + "." + favoriteAlbum + "." + yearOfRelease + "." + yearOfRelease + "." + numberOfSongs + "." + genre + ".");
-
-            File.AppendAllText(@"Data.txt", fullText + Environment.NewLine);
+            File.AppendAllText(@"C:\Users\TSG\source\repos\tsgxcode\OMDB\Data.txt", (artist + "." + formationDate + "." + favoriteAlbum + "." + yearOfRelease + "." + yearOfRelease + 
+            "." + numberOfSongs + "." + genre + ".") + Environment.NewLine);
         }
-
 
         public static void OutPutLog()
         {
@@ -94,8 +91,6 @@ namespace OMDBmain
                 Console.WriteLine(line);
             }
         }
-
-
 
         public static string ReadFile(string fileName)
         {
