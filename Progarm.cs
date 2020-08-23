@@ -73,8 +73,9 @@ namespace OMDBmain
             Console.Write("Genre: ");
             genre = Console.ReadLine();
 
-            File.AppendAllText(@"Data.txt", (artist + "." + formationDate + "." + favoriteAlbum + "." + yearOfRelease + "." + yearOfRelease + 
+            File.AppendAllText(@"C:\Users\TSG\source\repos\tsgxcode\OMDB\Data.txt", (artist + "." + formationDate + "." + favoriteAlbum + "." + yearOfRelease + "." + yearOfRelease + 
             "." + numberOfSongs + "." + genre + ".") + Environment.NewLine);
+
         }
 
         public static void OutPutLog()
