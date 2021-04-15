@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,6 +72,7 @@ namespace OMDBmain
             numberOfSongs = Console.ReadLine();
             Console.Write("Genre: ");
             genre = Console.ReadLine();
+            
 
             File.AppendAllText(@"C:\Users\TSG\source\repos\tsgxcode\OMDB\Data.txt", (artist + "." + formationDate + "." + favoriteAlbum + "." + yearOfRelease + "." + yearOfRelease + 
             "." + numberOfSongs + "." + genre + ".") + Environment.NewLine);
