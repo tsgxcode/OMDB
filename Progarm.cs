@@ -11,7 +11,7 @@ using System.Text.Json.Serialization;
 
 namespace OMDBmain
 {
-    internal class Program
+    class Program
     {
         public static string genre { get; set; }
         public static string numberOfSongs { get; set; }
@@ -19,13 +19,13 @@ namespace OMDBmain
         public static string favoriteAlbum { get; set; }
         public static string formationDate { get; set; }
         public static string artist { get; set; }
-        public static string festival { get; set; }
+        
 
         /*The obsucre Music Database!
           A database of strange and wonderful music from around the world.
           Concept, design and code by T.Scott George - (C) 2020
           V.1.0 */
-        public static void Main()
+        public static void Main(string[] args)
 
         {
             // Some Details
@@ -39,23 +39,23 @@ namespace OMDBmain
 
             Console.ResetColor();
 
-      
+
             //Master loop
             do
             {
-                Console.WriteLine("OML! What would you like to add?  ");
+                Console.WriteLine("OML! What would you like to add? ");
 
 
                 LogNewArtist();
-                Console.WriteLine("Would you like to see All artist's albums Yes or No? ");
-                if(Console.ReadLine().ToUpper() == "YES")
+                Console.WriteLine("Would you like to see All artist's albums? ");
+                if (Console.ReadLine().ToUpper() == "YES")
                 {
                     OutPutLog();
                 }
-                Console.WriteLine("Add Another? Yes or No");
+                Console.WriteLine("Add Another? ");
             }
             while (Console.ReadLine().ToUpper() == "YES");
-            
+
         }
         //User adds artist's info to the database
         public static void LogNewArtist()
@@ -72,10 +72,12 @@ namespace OMDBmain
             numberOfSongs = Console.ReadLine();
             Console.Write("Genre: ");
             genre = Console.ReadLine();
-            
 
-            File.AppendAllText(@"C:\Users\TSG\source\repos\tsgxcode\OMDB\Data.txt", (artist + "." + formationDate + "." + favoriteAlbum + "." + yearOfRelease + "." + yearOfRelease + 
-            "." + numberOfSongs + "." + genre + ".") + Environment.NewLine);
+            //Writing to a .txt file
+            //Shortened code for writing artist info to a text file, by using place holders instead of concatinating
+            File.AppendAllText(@"C:\Users\TSG\source\repos\tsgxcode\OMDB\Data.txt",
+            ("{0}", ".", "{1}", ".", "{2}", ".", "{3}", ".", "{4}", ".",
+             "{5}", ".", "{6}", ".") + Environment.NewLine);
 
         }
 
@@ -83,7 +85,7 @@ namespace OMDBmain
         {
             // Reads from csv, txt, etc. and displays the current database info
             string currentDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
+            var directory = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(directory.FullName, "Data.txt");
             var fileContents = ReadFile(fileName);
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
@@ -101,5 +103,10 @@ namespace OMDBmain
                 return reader.ReadToEnd();
             }
         }
+        //Feature to be added: removing an artist from the database 
+        public static void removeArtist()
+        {
+
+        }
     }
-}
+} 
