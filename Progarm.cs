@@ -53,6 +53,14 @@ namespace OMDBmain
                     OutPutLog();
                 }
                 Console.WriteLine("Add Another? ");
+
+                removeArtist();
+               
+                if (Console.ReadLine().ToUpper() == "YES")
+                {
+                    OutPutLog();
+                }
+                Console.WriteLine("Add Another? ");
             }
             while (Console.ReadLine().ToUpper() == "YES");
 
@@ -74,11 +82,7 @@ namespace OMDBmain
             genre = Console.ReadLine();
 
             //Writing to a .txt file
-            //Shortened code for writing artist info to a text file, by using place holders instead of concatinating
-            File.AppendAllText(@"C:\Users\TSG\source\repos\tsgxcode\OMDB\Data.txt",
-            ("{0}", ".", "{1}", ".", "{2}", ".", "{3}", ".", "{4}", ".",
-             "{5}", ".", "{6}", ".") + Environment.NewLine);
-
+            File.AppendAllText(@"C:\Users\TSG\source\repos\OMDB\Data.txt", $"{"Artist: " + artist}. {"Formation Date: " + formationDate}. {"Favorite Album: " + favoriteAlbum}. {"Year Of Release: " + yearOfRelease}. {"Number Of Songs: " + numberOfSongs}. {"Genre: " + genre}" + Environment.NewLine);
         }
 
         public static void OutPutLog()
@@ -105,8 +109,14 @@ namespace OMDBmain
         }
         //Feature to be added: removing an artist from the database 
         public static void removeArtist()
-        {
+         {
+             Console.Write("Please enter the artist name you want to delete: ");
+             string name = Console.ReadLine();
+             List<string> lst = File.ReadAllLines("Data.txt").Where(arg => !string.IsNullOrWhiteSpace(arg)).ToList();
+             lst.RemoveAll(x => x.Split('.')[0].Equals(name));
+             File.WriteAllLines("Data.txt", lst);
+         }
 
-        }
+      
     }
 } 

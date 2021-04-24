@@ -1,3 +1,8 @@
 {
-    "C_Cpp.errorSquiggles": "Enabled"
+    "C_Cpp.errorSquiggles": "Enabled",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#5F0910",
+        "titleBar.activeBackground": "#850D16",
+        "titleBar.activeForeground": "#FFFBFC"
+    }
 }
