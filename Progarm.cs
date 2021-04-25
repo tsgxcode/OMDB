@@ -47,22 +47,21 @@ namespace OMDBmain
 
 
                 LogNewArtist();
+                removeArtist();
                 Console.WriteLine("Would you like to see All artist's albums? ");
                 if (Console.ReadLine().ToUpper() == "YES")
                 {
                     OutPutLog();
                 }
                 Console.WriteLine("Add Another? ");
-
-                removeArtist();
-               
-                if (Console.ReadLine().ToUpper() == "YES")
-                {
-                    OutPutLog();
-                }
-                Console.WriteLine("Add Another? ");
+                Console.WriteLine("Please enter the artist name you want to delete: ");
+              
             }
             while (Console.ReadLine().ToUpper() == "YES");
+
+
+          
+    
 
         }
         //User adds artist's info to the database
@@ -81,11 +80,14 @@ namespace OMDBmain
             Console.Write("Genre: ");
             genre = Console.ReadLine();
 
+
+
             //Writing to a .txt file
             File.AppendAllText(@"C:\Users\TSG\source\repos\OMDB\Data.txt", $"{"Artist: " + artist}. {"Formation Date: " + formationDate}. {"Favorite Album: " + favoriteAlbum}. {"Year Of Release: " + yearOfRelease}. {"Number Of Songs: " + numberOfSongs}. {"Genre: " + genre}" + Environment.NewLine);
         }
 
         public static void OutPutLog()
+       
         {
             // Reads from csv, txt, etc. and displays the current database info
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -93,7 +95,7 @@ namespace OMDBmain
             var fileName = Path.Combine(directory.FullName, "Data.txt");
             var fileContents = ReadFile(fileName);
             string[] fileLines = fileContents.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
+            removeArtist();
             foreach (var line in fileLines)
             {
                 Console.WriteLine(line);
@@ -107,10 +109,9 @@ namespace OMDBmain
                 return reader.ReadToEnd();
             }
         }
-        //Feature to be added: removing an artist from the database 
+        //Removing an artist from the database 
         public static void removeArtist()
          {
-             Console.Write("Please enter the artist name you want to delete: ");
              string name = Console.ReadLine();
              List<string> lst = File.ReadAllLines("Data.txt").Where(arg => !string.IsNullOrWhiteSpace(arg)).ToList();
              lst.RemoveAll(x => x.Split('.')[0].Equals(name));
