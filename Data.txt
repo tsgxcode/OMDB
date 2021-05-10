@@ -1,14 +1,4 @@
-Artist: Per. Formation Date: 90. Favorite Album: um. Year Of Release: 20. Number Of Songs: 2. Genrefff
-Artist: No. Formation Date: no. Favorite Album: no. Year Of Release: no. Number Of Songs: no. Genre: O
-Artist: u. Formation Date: u. Favorite Album: u. Year Of Release: u. Number Of Songs: u. Genre: u
-Artist: dd. Formation Date: dd. Favorite Album: dd. Year Of Release: dd. Number Of Songs: dd. Genre: d
-Artist: neu.Formation Date: 439.Favorite Album: 444.Year Of Release: 4.Number Of Songs: 35.Genre: nue
-Artist: neu.Formation Date: 1977.Favorite Album: neu.Year Of Release: 1977.Number Of Songs: 4.Genre: neu
-Artist: nothing.Formation Date: 2079.Favorite Album: 42.Year Of Release: 2080.Number Of Songs: 5.Genre: Synthpsych
-Artist: gg.Formation Date: gg.Favorite Album: gg.Year Of Release: gg.Number Of Songs: 55.Genre: 66
-Artist: noon.Formation Date: noon.Favorite Album: noon.Year Of Release: noon.Number Of Songs: noon.Genre: noon
-Artist: .Formation Date: .Favorite Album: .Year Of Release: .Number Of Songs: .Genre: 
-Artist: llll.Formation Date: lllll.Favorite Album: lllll.Year Of Release: llll.Number Of Songs: llll.Genre: llllllll
-Artist: uuu.Formation Date: uuu.Favorite Album: uuu.Year Of Release: uuu.Number Of Songs: uuu.Genre: uuu
-Artist: .Formation Date: .Favorite Album: .Year Of Release: .Number Of Songs: .Genre: 
-Artist: . Formation Date: . Favorite Album: . Year Of Release: . Number Of Songs: . Genre: 
+Artist: no. Formation Date: no. Favorite Album: no. Year Of Release: no. Number Of Songs: nn. Genre: no
+Artist: oop. Formation Date: op. Favorite Album: oop. Year Of Release: oop. Number Of Songs: oop. Genre: op
+Artist: noon. Formation Date: nooon. Favorite Album: noon. Year Of Release: noon. Number Of Songs: noon. Genre: noon
+Artist: NON. Formation Date: nono. Favorite Album: nonono. Year Of Release: nn. Number Of Songs: oooo. Genre: ooo

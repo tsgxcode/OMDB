@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +9,7 @@ using OMDB;
 using System.Text.Json.Serialization;
 
 
-namespace OMDBmain
+namespace OMDB
 {
     class Program
     {
